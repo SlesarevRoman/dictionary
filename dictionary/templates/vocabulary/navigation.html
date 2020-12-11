@@ -1,0 +1,30 @@
+{% load socialaccount %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'vocabulary/css/navigation.css' %}">
+
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a id="home" class="nav-link" href="{% url 'vocabulary:home' %}">Home</a>
+  </li>
+
+  {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a id="profile" class="nav-link" href="{% url 'vocabulary:profile' %}">User settings</a>
+    </li>
+  {% endif %}
+
+  {% if not user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% provider_login_url 'google' %}">Log in with google</a>
+    </li>
+  {% endif %}
+
+  {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="/accounts/logout/">Log out</a>
+    </li>
+  {% endif %}
+</ul>
+
+<script src="{% static 'vocabulary/js/navigation.js' %}"></script>

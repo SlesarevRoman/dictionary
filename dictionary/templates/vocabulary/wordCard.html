@@ -1,0 +1,64 @@
+<div class="word-item">
+  <!-- show card state -->
+  <div class="word-item__show-state">
+    <span class="word-element">{{ item.word }}</span>
+    <span class="word-element">{{ item.definition }}</span>
+    <input
+      type="button"
+      class="btn btn-success"
+      style="margin-right: 10px;"
+      id="{{ item.id }}"
+      name='edit'
+      onclick='clickHandler(event)'
+      value="Edit"
+    >
+    <form action="{% url 'vocabulary:remove_word' item.id %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-default btn-danger">Delete</button>
+    </form>
+  </div>
+
+  <!-- start edit word card state block -->
+  <div class="word-item__edit-state hide">
+    <form
+      action="{% url 'vocabulary:update_word' item.id %}"
+      method="POST"
+      class="word-item__edit-form">
+      {% csrf_token %}
+      <div class="form-row">
+        <!-- word -->
+        <div class="form-group col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            autocomplete="off"
+            required
+            name="newWord"
+            id="word"
+            value="{{ item.word }}"
+          >
+        </div>
+
+        <!-- definition -->
+        <div class="form-group col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            required
+            name="newDefinition"
+            autocomplete="off"
+            id="definition"
+            value="{{ item.definition }}"
+          >
+        </div>
+        <div class="form-group col-md-6">
+          <button
+            type="submit"
+            class="btn btn-success"
+          >Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- end edit word card state block -->
+</div>

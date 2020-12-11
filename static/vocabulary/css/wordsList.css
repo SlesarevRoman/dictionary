@@ -1,0 +1,29 @@
+.word-item {
+  padding: 10px 5px;
+  border-radius: 5px;
+  /* display: flex; */
+}
+
+.word-element {
+  width: 50%;
+}
+
+.word-item:nth-child(2n - 1) {
+  background-color: #e3e3e3;
+}
+
+.word-item__show-state {
+  display: flex;
+}
+
+.word-item__edit-state {
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
+.word-item__edit-form {
+  width: 100%;
+}

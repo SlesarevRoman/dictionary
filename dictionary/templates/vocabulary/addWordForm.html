@@ -1,0 +1,29 @@
+<form action="{% url 'vocabulary:add_word' %}" method="POST">
+  {% csrf_token %}
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="word">Word</label>
+      <input
+        type="text"
+        class="form-control"
+        autofocus
+        autocomplete="off"
+        required
+        name="word"
+        id="word"
+      >
+    </div>
+    <div class="form-group col-md-6">
+      <label for="definition">Definition</label>
+      <input
+        type="text"
+        class="form-control"
+        required
+        name="definition"
+        autocomplete="off"
+        id="definition"
+      >
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Add word</button>
+</form>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home | Dictionary{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'vocabulary/css/wordsList.css' %}">
+  <h1>Vocabulary</h1>
+  <br>
+  <br>
+  <br>
+
+  {% if user.is_authenticated %}
+    {% include './addWordForm.html' %} <!-- add word form -->
+    <br>
+    <br>
+    <br>
+
+    <div id="words-list">
+      {% if vocabulary_list %}
+        {% for item in vocabulary_list %} <!-- words list -->
+          {% include './wordCard.html' %} <!-- word card -->
+        {% endfor %}
+      {% else %}
+        Add word!
+      {% endif %}
+    </div>
+  {% else %}
+    <p>Please, <strong>log in</strong> with google account to use the app!</p>
+  {% endif %}
+  <script src="{% static 'vocabulary/js/editHandler.js' %}"></script>
+{% endblock %}
