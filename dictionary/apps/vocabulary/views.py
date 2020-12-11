@@ -12,9 +12,6 @@ def home(request):
   except:
     return render(request, 'vocabulary/home.html')
 
-def profile(request):
-  return render(request, 'vocabulary/userSettings.html')
-
 def add_word(request):
   word = Word.objects.filter(author=request.user.id)
   word.create(
