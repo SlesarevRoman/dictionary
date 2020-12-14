@@ -15,9 +15,9 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 SECRET_KEY = '2$&rh11iba71y$29ygaf6=z8c)tp*je0%p=t$n7*585f0l**2m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dictionary-cs50.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
