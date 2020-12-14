@@ -15,9 +15,18 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 SECRET_KEY = '2$&rh11iba71y$29ygaf6=z8c)tp*je0%p=t$n7*585f0l**2m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['dictionary-cs50.herokuapp.com', '127.0.0.1']
+# 'dictionary-cs50.herokuapp.com'
+ALLOWED_HOSTS = ['*']
+
+STATICFILES_FINDERS = (
+ 
+'django.contrib.staticfiles.finders.FileSystemFinder',
+ 
+'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+ 
+)
 
 
 # Application definition
@@ -129,7 +138,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 
@@ -138,7 +147,7 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
-  os.path.join(BASE_DIR, 'vocabulary')
+  os.path.join(BASE_DIR, 'static')
 ]
 
 SITE_ID = 1
