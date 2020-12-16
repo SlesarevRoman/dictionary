@@ -1,5 +1,6 @@
 from pathlib import Path
 import os, sys
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,7 +16,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 SECRET_KEY = '2$&rh11iba71y$29ygaf6=z8c)tp*je0%p=t$n7*585f0l**2m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # 'dictionary-cs50.herokuapp.com'
 ALLOWED_HOSTS = ['*']
@@ -146,9 +147,11 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS = [
-  os.path.join(BASE_DIR, 'static')
-]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 SITE_ID = 1
 
@@ -167,3 +170,5 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 ACCOUNT_LOGOUT_ON_GET = True
+
+django_heroku.settings(locals())
