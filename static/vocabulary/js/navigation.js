@@ -5,12 +5,17 @@ const currentUrl = window.location.pathname;
     case '/':
       activeNavId = 'home'
       break
-    case '/profile':
-      activeNavId = 'profile'
+    case '/memorization':
+      activeNavId = 'memorization'
       break
     default:
       activeNavId = 'home'
       break
   };
 
-  document.getElementById(activeNavId).classList.add('active');
+document.getElementById(activeNavId).classList.add('active');
+
+function menuToggle() {
+  const elementId = 'navbarText';
+  document.getElementById(elementId).classList.toggle('show');
+};

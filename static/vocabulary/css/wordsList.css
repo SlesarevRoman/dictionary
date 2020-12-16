@@ -1,7 +1,6 @@
 .word-item {
   padding: 10px 5px;
   border-radius: 5px;
-  /* display: flex; */
 }
 
 .word-element {
@@ -14,6 +13,7 @@
 
 .word-item__show-state {
   display: flex;
+  justify-content: space-between;
 }
 
 .word-item__edit-state {
@@ -26,4 +26,34 @@
 
 .word-item__edit-form {
   width: 100%;
+}
+
+.word-item__button-wrapper {
+  display: flex;
+}
+
+.word-item__edit-button {
+  display: none;
+}
+
+@media only screen and (max-width: 991.98px) {
+  .word-item__show-state {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .word-item__edit-button {
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    outline: none;
+  }
+
+  .word-item__button-wrapper {
+    display: none;
+  }
 }

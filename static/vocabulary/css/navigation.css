@@ -5,3 +5,15 @@
 .active {
   color: #007bff;
 }
+
+.navbar-text {
+  margin-left: auto;
+}
+
+.navbar-toggler{
+  outline: none !important;
+}
+
+.navbar-toggler:active{
+  background-color: #0353ff;
+}

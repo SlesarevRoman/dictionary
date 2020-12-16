@@ -1,21 +1,34 @@
+{% load static %}
 <div class="word-item">
   <!-- show card state -->
-  <div class="word-item__show-state">
-    <span class="word-element">{{ item.word }}</span>
-    <span class="word-element">{{ item.definition }}</span>
-    <input
-      type="button"
-      class="btn btn-success"
-      style="margin-right: 10px;"
-      id="{{ item.id }}"
-      name='edit'
-      onclick='clickHandler(event)'
-      value="Edit"
+  <div id="{{ item.id }}" class="word-item__show-state">
+    <div>
+      <strong class="word-element">{{ item.word }}</strong> : 
+      <i class="word-element">{{ item.definition }}</i>
+    </div>
+
+    <div
+      class="word-item__button-wrapper"
     >
-    <form action="{% url 'vocabulary:remove_word' item.id %}" method="POST">
-      {% csrf_token %}
-      <button type="submit" class="btn btn-default btn-danger">Delete</button>
-    </form>
+      <input
+        type="button"
+        class="btn btn-success"
+        style="margin-right: 10px;"
+        name='edit'
+        onclick='editHandler(event)'
+        value="Edit"
+      >
+      <form action="{% url 'vocabulary:remove_word' item.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-default btn-danger">Delete</button>
+      </form>
+    </div>
+    <input
+      class="word-item__edit-button"
+      type="image"
+      src="{% static 'vocabulary/images/edit.svg' %}"
+      onclick='editHandlerMobile(event)'
+    />
   </div>
 
   <!-- start edit word card state block -->
