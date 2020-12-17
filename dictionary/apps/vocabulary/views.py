@@ -32,3 +32,6 @@ def update_word(request, article_id):
   word.definition = request.POST['newDefinition']
   word.save()
   return HttpResponseRedirect( reverse('vocabulary:home') )
+
+def memorization(request):
+  return render(request, 'vocabulary/memorization.html')

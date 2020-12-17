@@ -19,7 +19,7 @@
 
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a id="memorization" class="nav-link" href="#">Memorization</a>
+          <a id="memorization" class="nav-link" href="{% url 'vocabulary:memorization' %}">Memorization</a>
         </li>
         {% endif %}
 
